@@ -17,7 +17,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false", 
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -41,5 +41,10 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.7.0",
     "gh-pages": "^6.3.0"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)/"
+    ]
   }
 }

@@ -39,7 +39,7 @@ function App() {
     
     <div className="container">
       
-      {/* <div className="section">
+      <div className="section">
         <h3>Admin Upload</h3>
         <input type="file" onChange={(e) => setAdminFile(e.target.files[0])} />
         <button onClick={handleAdminUpload}>Upload</button>
@@ -49,7 +49,7 @@ function App() {
         <h3>User Verify</h3>
         <input type="file" onChange={(e) => setUserFile(e.target.files[0])} />
         <button onClick={handleUserVerify}>Verify</button>
-      </div> */}
+      </div>
 
       {result && (
         <div className="result">

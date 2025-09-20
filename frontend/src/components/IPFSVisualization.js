@@ -25,19 +25,19 @@ const IPFSVisualization = ({ fileData, isVisible }) => {
 
   if (!isVisible || !fileData) return null;
 
-  const generateFileHash = (file) => {
-    // Simulate hash generation process
-    const crypto = window.crypto || window.msCrypto;
-    if (crypto && crypto.subtle) {
-      return crypto.subtle.digest('SHA-256', file)
-        .then(hashBuffer => {
-          const hashArray = Array.from(new Uint8Array(hashBuffer));
-          return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        });
-    }
-    // Fallback for browsers without crypto.subtle
-    return Promise.resolve('a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456');
-  };
+  // const generateFileHash = (file) => {
+  //   // Simulate hash generation process
+  //   const crypto = window.crypto || window.msCrypto;
+  //   if (crypto && crypto.subtle) {
+  //     return crypto.subtle.digest('SHA-256', file)
+  //       .then(hashBuffer => {
+  //         const hashArray = Array.from(new Uint8Array(hashBuffer));
+  //         return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  //       });
+  //   }
+  //   // Fallback for browsers without crypto.subtle
+  //   return Promise.resolve('a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456');
+  // };
 
   const truncateHash = (hash) => {
     return hash ? `${hash.substring(0, 8)}...${hash.substring(hash.length - 8)}` : '';

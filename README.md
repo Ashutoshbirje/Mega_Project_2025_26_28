@@ -1,4 +1,12 @@
-# Welcome to DocChain
+# 🔗 DocChain: Unified Document Verification Platform 🔗
+
+## 📚 Project Domain
+**Domain**: Web application development with blockchain
+**Tech Stack**: MERN (MongoDB, Express.js, React.js, Node.js), BlockChain
+
+## 🧩 Problem Statement
+
+## 💡 Project Idea 
 
 ## 🔗 Blockchain Document Verification System
 
@@ -36,6 +44,7 @@ DocChain is a secure, blockchain-based document verification system that ensures
 - Node.js (v14 or higher)
 - MongoDB
 - Gmail account (for email notifications)
+- Pinata account (for IPFS storage)
 
 ### Installation
 
@@ -78,13 +87,19 @@ SMTP_PASS=your-app-password
 
 # Blockchain
 DIFFICULTY=2
+
+# Pinata 
+PINATA_API_KEY=pinata-storage-api-key
+PINATA_API_SECRET=pinata-storage-password
+PINATA_GATEWAY=https://gateway.pinata.cloud/ipfs/
+
 ```
 
 5. **Start the Application**
 ```bash
 # Terminal 1 - Backend
 cd backend
-npm start
+npm server.js
 
 # Terminal 2 - Frontend
 cd frontend
@@ -95,13 +110,23 @@ npm start
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:5000
 
-## 📖 Documentation
+## 🖼️ Screenshot Preview
 
-- [Authentication Setup](AUTHENTICATION_SETUP.md) - Complete authentication system guide
-- [Email Setup](EMAIL_SETUP.md) - Email notification system configuration
-- [IPFS Setup](IPFS_SETUP.md) - IPFS configuration and setup
+HOME
+![DocChain UI Preview](./Images/1.png)
 
-## 🔧 API Endpoints
+Login-SignUp
+![DocChain UI Preview](./Images/2.png)
+
+Role-Base Access
+![DocChain UI Preview](./Images/3.png)
+
+Upload Result
+![DocChain UI Preview](./Images/4.png)
+
+Verification Result
+![DocChain UI Preview](./Images/5.png)
+![DocChain UI Preview](./Images/6.png)
 
 ### Authentication
 - `POST /api/auth/register` - Register new user
@@ -135,22 +160,6 @@ npm start
 4. **Email Notifications**: Receive detailed email notifications for all actions
 5. **View Results**: See detailed verification results and IPFS information
 
-## 🧪 Testing
-
-### Test Email Service
-```bash
-cd backend
-node test-email.js
-```
-
-### Test API Endpoints
-```bash
-# Check IPFS status
-curl http://localhost:5000/api/ipfs/status
-
-# Check email status
-curl http://localhost:5000/api/email/status
-```
 
 ## 📁 Project Structure
 
@@ -180,9 +189,6 @@ Mega_Project_2025_26_28/
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ## 🆘 Support
 

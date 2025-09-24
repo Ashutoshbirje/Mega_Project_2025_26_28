@@ -2,6 +2,7 @@
 
 ## 📚 Project Domain
 **Domain**: Web application development with blockchain
+
 **Tech Stack**: MERN (MongoDB, Express.js, React.js, Node.js), BlockChain
 
 ## 🧩 Problem Statement
@@ -178,7 +179,7 @@ Mega_Project_2025_26_28/
 │   │   ├── api.js       # API client
 │   │   └── App.js       # Main application
 │   └── public/          # Static assets
-└── docs/               # Documentation
+└── Images/              
 ```
 
 ## 🤝 Contributing

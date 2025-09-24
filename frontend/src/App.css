@@ -256,7 +256,6 @@
   .user-email {
     display: none;
   }
-
   .login-btn-mobile {
     display: flex; /* show login button only on small screens */
   }

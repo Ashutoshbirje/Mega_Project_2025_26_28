@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { adminUpload, userVerify, login, register, getCurrentUser, logout } from "./api";
 import IPFSVisualization from "./components/IPFSVisualization";
 import HashGenerator from "./components/HashGenerator";
-import './App.css';
-// import Component from './components/Component';
-import "./styles.css";
 import Block3D from "./components/Block3D";
+import './App.css';
+import "./styles.css";
 
 function App() {
   const [adminFile, setAdminFile] = useState(null);

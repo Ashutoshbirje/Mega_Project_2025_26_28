@@ -1,4 +1,4 @@
-# 🔗 DocChain: Unified Document Verification Platform 🔗
+# DocChain: Unified Document Verification Platform 
 
 ## 📚 Project Domain
 **Domain**: Web application development with blockchain
@@ -6,11 +6,11 @@
 
 ## 🧩 Problem Statement
 
+Manual document verification is slow, error-prone, and vulnerable to tampering. Sensitive records like certificates or mark sheets can be altered without detection. A secure system is needed to ensure authenticity, transparency, and integrity using IPFS and hashing.
+
 ## 💡 Project Idea 
 
-## 🔗 Blockchain Document Verification System
-
-DocChain is a secure, blockchain-based document verification system that ensures document authenticity and integrity using cryptographic hashing and IPFS storage.
+DocChain provides a blockchain-powered platform where documents are hashed and stored on IPFS to ensure immutability. Blockchain maintains an auditable, tamper-proof trail with role-based access, delivering fast and trusted document verification.
 
 ## ✨ Features
 

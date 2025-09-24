@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Upload Successful - DocChain</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+        .success-icon {
+            font-size: 48px;
+            color: #10b981;
+            margin-bottom: 15px;
+        }
+        .title {
+            color: #1f2937;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #6b7280;
+            font-size: 16px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 16px;
+            color: #4b5563;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        .file-details {
+            background: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .file-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .file-detail:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .file-detail-label {
+            font-weight: 600;
+            color: #374151;
+        }
+        .file-detail-value {
+            color: #6b7280;
+            word-break: break-all;
+        }
+        .ipfs-link {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            margin: 15px 0;
+            transition: background-color 0.2s;
+        }
+        .ipfs-link:hover {
+            background: #2563eb;
+        }
+        .security-note {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .security-note-title {
+            font-weight: 600;
+            color: #065f46;
+            margin-bottom: 8px;
+        }
+        .security-note-text {
+            color: #047857;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .timestamp {
+            color: #9ca3af;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🔗 DocChain</div>
+            <div class="success-icon">✅</div>
+            <div class="title">Document Upload Successful</div>
+            <div class="subtitle">Your document has been securely stored on the blockchain</div>
+        </div>
+
+        <div class="content">
+            <div class="greeting">Hello {{userName}},</div>
+            
+            <div class="message">
+                We're pleased to inform you that your document has been successfully uploaded to DocChain and stored on the blockchain. Your document is now cryptographically secured and tamper-proof.
+            </div>
+
+            <div class="file-details">
+                <div class="file-detail">
+                    <span class="file-detail-label">Document Name:</span>
+                    <span class="file-detail-value">{{fileName}}</span>
+                </div>
+                <div class="file-detail">
+                    <span class="file-detail-label">File Hash:</span>
+                    <span class="file-detail-value">{{fileHash}}</span>
+                </div>
+                <div class="file-detail">
+                    <span class="file-detail-label">Upload Date:</span>
+                    <span class="file-detail-value">{{currentDate}}</span>
+                </div>
+                <div class="file-detail">
+                    <span class="file-detail-label">Upload Time:</span>
+                    <span class="file-detail-value">{{currentTime}}</span>
+                </div>
+            </div>
+
+            {{#if ipfsUrl}}
+            <div style="text-align: center;">
+                <a href="{{ipfsUrl}}" class="ipfs-link">View Document on IPFS</a>
+            </div>
+            {{/if}}
+
+            <div class="security-note">
+                <div class="security-note-title">🔒 Security Features</div>
+                <div class="security-note-text">
+                    • Your document is protected by SHA-256 cryptographic hashing<br>
+                    • Stored on decentralized IPFS network for redundancy<br>
+                    • Immutable blockchain record ensures authenticity<br>
+                    • Only you can verify the document's integrity
+                </div>
+            </div>
+
+            <div class="message">
+                You can now use the verification feature to confirm your document's authenticity at any time. Simply upload the same file, and DocChain will verify its integrity against the blockchain record.
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>Thank you for using DocChain - Where Trust is Replaced by Cryptography</div>
+            <div class="timestamp">Email sent on {{currentDate}} at {{currentTime}}</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+URL 1 : Admin Upload
+
+Method: POST
+
+URL: http://localhost:5000/api/admin/upload
+
+Body (form-data):
+
+Key: file → Type: File → Select any file (e.g., PDF, DOCX, PNG, etc.) 
+
+
+URL 2 : User Verify
+
+Method: POST
+
+URL: http://localhost:5000/api/user/verify
+
+Body (form-data):
+
+Key: file → Type: File → Upload a file you want to verify

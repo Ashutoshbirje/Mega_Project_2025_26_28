@@ -1,0 +1,456 @@
+.ipfs-visualization {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.ipfs-visualization::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.visualization-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.visualization-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.toggle-details {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.toggle-details:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.visualization-container {
+  position: relative;
+  z-index: 1;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.5;
+  transform: translateX(-20px);
+  transition: all 0.6s ease;
+}
+
+.step.active {
+  opacity: 1;
+  transform: translateX(0);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.step-icon {
+  font-size: 2rem;
+  min-width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.file-info {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.file-name {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+}
+
+.file-size, .file-type {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+}
+
+.hash-process {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.hash-input, .hash-algorithm, .hash-output {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.hash-arrow {
+  font-size: 1.25rem;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.hash-output {
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #ffd700;
+}
+
+.ipfs-process {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.ipfs-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.node-icon {
+  font-size: 1.5rem;
+}
+
+.node-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ipfs-arrow {
+  font-size: 1.25rem;
+  color: #00d4ff;
+  font-weight: bold;
+}
+
+.ipfs-hash {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hash-label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.hash-value {
+  background: rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+.blockchain-process {
+  margin-bottom: 0.75rem;
+}
+
+.block {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.block-header {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: #ffd700;
+}
+
+.block-data {
+  margin-bottom: 0.75rem;
+}
+
+.data-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.data-label {
+  opacity: 0.8;
+}
+
+.data-value {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+}
+
+.block-hash {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.arrow {
+  text-align: center;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0.5rem 0;
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.arrow.active {
+  opacity: 1;
+  transform: scale(1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.network-visualization {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.network-visualization h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.network-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.node-icon {
+  font-size: 2rem;
+}
+
+.node-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.node-connections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.connection {
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: pulse 2s infinite;
+}
+
+.connection:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.connection:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.network-explanation {
+  text-align: center;
+  font-size: 0.875rem;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Details sections */
+.hash-details, .ipfs-details, .blockchain-details {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hash-full, .ipfs-url {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.hash-full, .ipfs-url strong {
+  color: #ffd700;
+}
+
+.ipfs-url a {
+  color: #00d4ff;
+  text-decoration: none;
+  word-break: break-all;
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.ipfs-url a:hover {
+  background: rgba(0, 212, 255, 0.2);
+  text-decoration: underline;
+}
+
+.hash-explanation, .ipfs-explanation, .block-explanation {
+  font-size: 0.875rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.verification-process {
+  margin-top: 1rem;
+}
+
+.verification-process strong {
+  color: #ffd700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.verification-process ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.verification-process li {
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ipfs-visualization {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .step {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .hash-process, .ipfs-process {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .hash-arrow, .ipfs-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .network-nodes {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .node-connections {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .connection {
+    width: 20px;
+    height: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .visualization-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .file-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .data-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

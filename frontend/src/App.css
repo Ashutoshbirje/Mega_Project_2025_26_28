@@ -1,0 +1,281 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.App h1 {
+  color: #1e293b;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.App p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+/* Header styles */
+.header {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.header1 {
+  margin-top: 70px;
+}
+
+.user-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+
+.user-email {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+
+.logout-btn {
+  background: #ffffff;
+  color: #dc2626; /* icon/text red */
+  border: 1px solid #e5e7eb;
+  border-radius: 12px; /* rounded square */
+  width: clamp(32px, 8vw, 36px);
+  height: clamp(32px, 8vw, 36px);
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.logout-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Extra spacing below the logout button */
+.user-info .logout-btn {
+  margin-bottom: 8px;
+}
+
+/* Authentication styles */
+.auth-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 480px;
+  margin-top: 90px;
+  margin-bottom: 100px;
+
+}
+
+.auth-toggle-label {
+  font-size: 0.95rem;
+  color: #334155;
+  font-weight: 600;
+  margin-bottom: 1rem; /* increased margin below label */
+  text-align: center;
+}
+
+.auth-toggle {
+  display: flex;
+  margin-bottom: 2rem;
+  border-radius: 9999px;
+  /* overflow: hidden; */
+  border: 1px solid #e2e8f0;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.5rem 0.875rem; /* reduced height */
+  border: none;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+/* Asymmetric curved radius: left button rounded on left, right button rounded on right */
+.auth-toggle .toggle-btn:first-child {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+}
+
+.auth-toggle .toggle-btn:last-child {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}
+
+.toggle-btn.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: #e2e8f0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.auth-submit-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.auth-submit-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Main content styles */
+.main-content {
+  width: 100%;
+  max-width: 800px;
+}
+
+
+/* User info container */
+.user-info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 2vw, 10px);
+  flex-wrap: wrap;
+}
+
+/* User email: font scales down on smaller screens */
+.user-email {
+  color: #64748b;
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  font-weight: 500;
+  max-width: 150px; /* optional: prevent too long email from overflowing */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Logout button: responsive sizing */
+.logout-btn {
+  background: #ffffff;
+  color: #dc2626;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  width: clamp(28px, 6vw, 36px);
+  height: clamp(28px, 6vw, 36px);
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 0; /* remove default padding */
+}
+
+/* Hover effect */
+.logout-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Hide user info on small screens */
+@media (max-width: 420px) {
+  .user-email {
+    display: none;
+  }
+
+  .login-btn-mobile {
+    display: flex; /* show login button only on small screens */
+  }
+}
+
+/* By default, hide the mobile login button */
+.login-btn-mobile {
+  display: none;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-btn-mobile:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}

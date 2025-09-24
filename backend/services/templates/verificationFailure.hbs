@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Verification Failed - DocChain</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #ef4444;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+        .warning-icon {
+            font-size: 48px;
+            color: #ef4444;
+            margin-bottom: 15px;
+        }
+        .title {
+            color: #1f2937;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #6b7280;
+            font-size: 16px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 16px;
+            color: #4b5563;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        .verification-details {
+            background: #fef2f2;
+            border: 1px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .verification-status {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .status-badge {
+            display: inline-block;
+            background: #ef4444;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .file-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #fecaca;
+        }
+        .file-detail:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .file-detail-label {
+            font-weight: 600;
+            color: #991b1b;
+        }
+        .file-detail-value {
+            color: #dc2626;
+            word-break: break-all;
+        }
+        .warning-note {
+            background: #fffbeb;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning-note-title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+        .warning-note-text {
+            color: #b45309;
+            font-size: 14px;
+        }
+        .possible-reasons {
+            background: #f3f4f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .possible-reasons-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 15px;
+        }
+        .reason-list {
+            list-style: none;
+            padding: 0;
+        }
+        .reason-list li {
+            padding: 5px 0;
+            color: #6b7280;
+            position: relative;
+            padding-left: 20px;
+        }
+        .reason-list li:before {
+            content: "•";
+            color: #9ca3af;
+            position: absolute;
+            left: 0;
+        }
+        .action-note {
+            background: #f0f9ff;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .action-note-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        .action-note-text {
+            color: #1d4ed8;
+            font-size: 14px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .timestamp {
+            color: #9ca3af;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🔗 DocChain</div>
+            <div class="warning-icon">❌</div>
+            <div class="title">Document Verification Failed</div>
+            <div class="subtitle">Document not found in blockchain records</div>
+        </div>
+
+        <div class="content">
+            <div class="greeting">Hello {{userName}},</div>
+            
+            <div class="message">
+                We were unable to verify your document against our blockchain records. This means the document you uploaded for verification was not found in our system.
+            </div>
+
+            <div class="verification-details">
+                <div class="verification-status">
+                    <span class="status-badge">❌ VERIFICATION FAILED</span>
+                </div>
+                
+                <div class="file-detail">
+                    <span class="file-detail-label">Document Name:</span>
+                    <span class="file-detail-value">{{fileName}}</span>
+                </div>
+                <div class="file-detail">
+                    <span class="file-detail-label">File Hash:</span>
+                    <span class="file-detail-value">{{fileHash}}</span>
+                </div>
+                <div class="file-detail">
+                    <span class="file-detail-label">Verification Date:</span>
+                    <span class="file-detail-value">{{currentDate}}</span>
+                </div>
+                <div class="file-detail">
+                    <span class="file-detail-label">Verification Time:</span>
+                    <span class="file-detail-value">{{currentTime}}</span>
+                </div>
+            </div>
+
+            <div class="possible-reasons">
+                <div class="possible-reasons-title">Possible Reasons:</div>
+                <ul class="reason-list">
+                    <li>The document was never uploaded to DocChain</li>
+                    <li>The document has been modified since original upload</li>
+                    <li>You may have uploaded a different version of the file</li>
+                    <li>The file format or encoding may have changed</li>
+                    <li>The document was uploaded with a different account</li>
+                </ul>
+            </div>
+
+            <div class="warning-note">
+                <div class="warning-note-title">⚠️ Important Security Note</div>
+                <div class="warning-note-text">
+                    This verification failure means we cannot confirm the authenticity of your document. If you believe this is an error, please ensure you're uploading the exact same file that was originally stored in DocChain.
+                </div>
+            </div>
+
+            <div class="action-note">
+                <div class="action-note-title">💡 What You Can Do</div>
+                <div class="action-note-text">
+                    • Double-check that you're uploading the correct file<br>
+                    • Ensure the file hasn't been modified or renamed<br>
+                    • Try uploading the document again if it was never stored<br>
+                    • Contact support if you need assistance
+                </div>
+            </div>
+
+            <div class="message">
+                If you need to upload a new document to DocChain, please use the upload feature to securely store it on our blockchain.
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>Thank you for using DocChain - Where Trust is Replaced by Cryptography</div>
+            <div class="timestamp">Email sent on {{currentDate}} at {{currentTime}}</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -171,11 +171,11 @@ function App() {
 
        
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-      <h1 className="header1">Welcome to DocChain</h1>
-      <p>Trust is replaced by cryptography; security is built into the chain itself.</p>
+      {/* <h1 className="header1">Welcome to DocChain</h1>
+      <p>Trust is replaced by cryptography; security is built into the chain itself.</p> */}
        
        <div className="demo-section">
-        <Block3D></Block3D>
+        {/* <Block3D></Block3D> */}
          <button 
            className="demo-toggle"
            onClick={() => setShowHashGenerator(!showHashGenerator)}

@@ -1,0 +1,24 @@
+/* Inspired by Zilla Parishad Sangli header: light khaki band, serif titles */
+.zps-header { width: 100%; box-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+.zps-topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #e7e4dd; /* light parchment */ color: #1f2937; font-weight: 600;
+  padding: 6px 14px; font-size: 12px; letter-spacing: .02em;
+}
+.zps-brand { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 12px 16px; background: #f5f2ec; }
+.zps-emblem { font-size: 36px; }
+.zps-titles { line-height: 1.1; }
+.zps-title-hi { font-size: 18px; font-weight: 700; }
+.zps-title-en { font-size: 28px; font-weight: 800; }
+.zps-logos { display: flex; gap: 12px; }
+.zps-logo-gov, .zps-logo-zp { width: 48px; height: 48px; background: radial-gradient(circle at 30% 30%, #f9d976, #f39f86); border-radius: 50%; }
+.zps-nav { background: #fbfaf7; border-top: 1px solid #e5e7eb; padding: 8px 12px; display: flex; justify-content: flex-end; }
+.zps-menu { background: transparent; border: none; font-size: 20px; cursor: pointer; }
+.zps-logout { margin-left: 12px; background: #ffffff; color: #b91c1c; border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+
+@media (max-width: 640px) {
+  .zps-title-en { font-size: 22px; }
+  .zps-title-hi { font-size: 16px; }
+}
+
+

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { adminUpload, userVerify, login, register, getCurrentUser, logout } from "./api";
 import IPFSVisualization from "./components/IPFSVisualization";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import HashGenerator from "./components/HashGenerator";
 import Block3D from "./components/Block3D";
 import './App.css';
@@ -19,7 +21,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
-  const [authForm, setAuthForm] = useState({ email: '', password: '' });
+  const [authForm, setAuthForm] = useState({ email: '', password: '', role: 'user' });
 
   // Check if user is logged in on component mount
   useEffect(() => {
@@ -53,7 +55,7 @@ function App() {
     try {
       const response = showLogin 
         ? await login(authForm.email, authForm.password)
-        : await register(authForm.email, authForm.password);
+        : await register(authForm.email, authForm.password, authForm.role);
       
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
@@ -93,6 +95,7 @@ function App() {
       setError("Please login first to upload documents!");
       return;
     }
+    // Both admin and user can upload now
     
     setLoading(prev => ({ ...prev, admin: true }));
     setError(null);
@@ -120,6 +123,7 @@ function App() {
       setError("Please login first to verify documents!");
       return;
     }
+    // Both roles can verify
     
     setLoading(prev => ({ ...prev, user: true }));
     setError(null);
@@ -166,25 +170,9 @@ function App() {
        {/* When user us logged in show case logout symbol on top right corner in red color do not give me profile and any other just logout  */}
 
        
-       {/* Header with logout button */}
-       <div className="header">
-          {isAuthenticated && (
-           <div className="user-info">
-             <span className="user-email">{user?.email}</span>
-            <button 
-              className="logout-btn" 
-              onClick={handleLogout}
-              title="Logout"
-            >
-              Logout
-            </button>
-           </div>
-         )}
-         
-         <h1 className="header1">Welcome to DocChain</h1>
-         <p>Trust is replaced by cryptography; security is built into the chain itself.</p>
-       
-       </div>
+      <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
+      <h1 className="header1">Welcome to DocChain</h1>
+      <p>Trust is replaced by cryptography; security is built into the chain itself.</p>
        
        <div className="demo-section">
         <Block3D></Block3D>
@@ -217,6 +205,15 @@ function App() {
            </div>
            
            <form onSubmit={handleAuth} className="auth-form">
+             {!showLogin && (
+              <div className="form-group">
+                <label htmlFor="role">Role:</label>
+                <select id="role" value={authForm.role} onChange={(e) => setAuthForm({ ...authForm, role: e.target.value })}>
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+             )}
              <div className="form-group">
                <label htmlFor="email">Email:</label>
                <input
@@ -247,6 +244,9 @@ function App() {
              >
                {loading.auth ? 'Processing...' : (showLogin ? 'Login' : 'Register')}
              </button>
+            {error && (
+              <div style={{color:'#b91c1c',fontSize:'0.95rem'}}>{error}</div>
+            )}
            </form>
          </div>
        ) : (
@@ -255,36 +255,38 @@ function App() {
        
        
          <div className="main-content">
-           <div className="section">
-        <h3>📤 Document Upload</h3>
-        <div className="file-input-wrapper">
-          <input 
-            type="file" 
-            id="admin-file"
-            onChange={handleAdminFileChange}
-            accept=".pdf,.png,.jpg,.jpeg"
-          />
-          <label 
-            htmlFor="admin-file" 
-            className={`file-input-label ${adminFile ? 'has-file' : ''}`}
-          >
-            <span>📁</span>
-            <span>{adminFile ? adminFile.name : 'Choose file to upload'}</span>
-          </label>
-        </div>
-        {adminFile && (
-          <div className="file-name">
-            Selected: {adminFile.name} ({(adminFile.size / 1024 / 1024).toFixed(2)} MB)
+      {user?.role === 'admin' && (
+        <div className="section">
+          <h3>📤 Document Upload</h3>
+          <div className="file-input-wrapper">
+            <input 
+              type="file" 
+              id="admin-file"
+              onChange={handleAdminFileChange}
+              accept=".pdf,.png,.jpg,.jpeg"
+            />
+            <label 
+              htmlFor="admin-file" 
+              className={`file-input-label ${adminFile ? 'has-file' : ''}`}
+            >
+              <span>📁</span>
+              <span>{adminFile ? adminFile.name : 'Choose file to upload'}</span>
+            </label>
           </div>
-        )}
-        <button 
-          onClick={handleAdminUpload}
-          disabled={loading.admin || !adminFile}
-          className={loading.admin ? 'loading' : ''}
-        >
-          {loading.admin ? 'Uploading...' : 'Upload Document'}
-        </button>
-      </div>
+          {adminFile && (
+            <div className="file-name">
+              Selected: {adminFile.name} ({(adminFile.size / 1024 / 1024).toFixed(2)} MB)
+            </div>
+          )}
+          <button 
+            onClick={handleAdminUpload}
+            disabled={loading.admin || !adminFile}
+            className={loading.admin ? 'loading' : ''}
+          >
+            {loading.admin ? 'Uploading...' : 'Upload Document'}
+          </button>
+        </div>
+      )}
 
       <div className="section">
         <h3>🔍 User Verify</h3>
@@ -410,7 +412,7 @@ function App() {
       )}
       
          </div>
-       
+      <Footer />
     </div>
   )}
     </div>

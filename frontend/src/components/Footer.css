@@ -1,0 +1,6 @@
+.zps-footer { margin-top: auto; background: #f3f0e8; border-top: 1px solid #e5e7eb; }
+.zps-footer-inner { max-width: 1100px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; color: #374151; font-size: 14px; }
+.zps-footer-links { display: flex; gap: 14px; }
+.zps-footer-links a { color: #334155; text-decoration: none; }
+.zps-footer-links a:hover { text-decoration: underline; }
+

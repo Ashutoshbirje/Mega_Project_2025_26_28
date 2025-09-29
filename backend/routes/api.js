@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
 const Blockchain = require('../blockchain');
-const { auth } = require('../middleware/auth');
+const { auth, requireRole } = require('../middleware/auth');
 const EmailService = require('../services/emailService');
 
 // Initialize real IPFS service (ipfs-http-client)
@@ -37,8 +37,8 @@ function isLikelyValidCid(cid) {
   return cidv0.test(cid) || cidv1.test(cid);
 }
 
-// Document upload (protected route - any authenticated user)
-router.post('/admin/upload', auth, upload.single('file'), async (req, res) => {
+// Document upload (admin only)
+router.post('/admin/upload', auth, requireRole('admin'), upload.single('file'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: 'No file' });
     

@@ -7,8 +7,6 @@ function Header({ isAuthenticated, onLogout }) {
       className="header-wrapper"
       style={{
         width: '100%',
-        background: '#edeae4',
-        borderBottom: '1px solid #d6d3cd',
         boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
         padding: 0,
         marginBottom: '0.5rem',
@@ -49,13 +47,13 @@ function Header({ isAuthenticated, onLogout }) {
                   className="emblem"
                   src="https://zpsangli.maharashtra.gov.in/wp-content/themes/sdo-theme/images/emblem.svg"
                   alt="भारताचे राज्य चिन्ह"
-                  style={{ width: '80px', height: 'auto', marginRight: '18px' }}
+                  style={{ width: '70px', height: '80px', marginRight: '18px' }}
                 />
                 <div className="logo_text" style={{ color: '#222' }}>
-                  <strong lang="mr" style={{ fontSize: '1.7rem', display: 'block', color: '#222', fontWeight: 600 }}>
+                  <strong lang="mr" style={{ fontSize: '1.0rem', display: 'block', color: '#222', fontWeight: 600 }}>
                     जिल्हा परिषद सांगली
                   </strong>
-                  <h1 className="h1-logo" style={{ fontSize: '2.2rem', margin: 0, color: '#222', fontWeight: 700 }}>
+                  <h1 className="h1-logo" style={{ fontSize: '2.0rem', margin: 0, color: '#222', fontWeight: 700 }}>
                     Zilla Parishad Sangli
                   </h1>
                 </div>
@@ -85,7 +83,6 @@ function Header({ isAuthenticated, onLogout }) {
               <a
                 aria-label="जिल्हा परिषद सांगलीचा लोगो - बाह्य विंडो जी नवीन विंडोमध्ये उघडते"
                 href="https://zpsangli.maharashtra.gov.in/"
-                target="_blank"
                 title="जिल्हा परिषद सांगलीचा लोगो"
                 style={{ display: 'inline-block' }}
               >

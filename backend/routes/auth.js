@@ -11,7 +11,7 @@ const JWT_EXPIRE = process.env.JWT_EXPIRE || '7d';
 // Register
 router.post('/register', async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, role = 'user' } = req.body;
 
     // Validation
     if (!email || !password) {
@@ -28,13 +28,14 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ error: 'User already exists with this email' });
     }
 
-    // Create new user (no role needed)
-    const user = new User({ email, password });
+    // Create new user with role
+    const normalizedRole = role === 'admin' ? 'admin' : 'user';
+    const user = new User({ email, password, role: normalizedRole });
     await user.save();
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user._id, email: user.email },
+      { userId: user._id, email: user.email, role: user.role },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRE }
     );
@@ -44,7 +45,8 @@ router.post('/register', async (req, res) => {
       token,
       user: {
         id: user._id,
-        email: user.email
+        email: user.email,
+        role: user.role
       },
       message: 'User registered successfully'
     });
@@ -78,7 +80,7 @@ router.post('/login', async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user._id, email: user.email },
+      { userId: user._id, email: user.email, role: user.role },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRE }
     );
@@ -88,7 +90,8 @@ router.post('/login', async (req, res) => {
       token,
       user: {
         id: user._id,
-        email: user.email
+        email: user.email,
+        role: user.role
       },
       message: 'Login successful'
     });
@@ -105,7 +108,8 @@ router.get('/me', auth, async (req, res) => {
       success: true,
       user: {
         id: req.user._id,
-        email: req.user.email
+        email: req.user.email,
+        role: req.user.role
       }
     });
   } catch (error) {

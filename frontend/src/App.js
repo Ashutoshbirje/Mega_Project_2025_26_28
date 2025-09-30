@@ -4,7 +4,7 @@ import IPFSVisualization from "./components/IPFSVisualization";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HashGenerator from "./components/HashGenerator";
-import Block3D from "./components/Block3D";
+// import Block3D from "./components/Block3D";
 import './App.css';
 import "./styles.css";
 
@@ -167,15 +167,13 @@ function App() {
 
   return (
     <div className="App">
-       {/* When user us logged in show case logout symbol on top right corner in red color do not give me profile and any other just logout  */}
-
        
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-      <h1 className="header1">Welcome to DocChain</h1>
+      {/* <h1 className="header1">Welcome to DocChain</h1>
       <p>Trust is replaced by cryptography; security is built into the chain itself.</p>
-       
+        */}
        <div className="demo-section">
-        <Block3D></Block3D>
+       {/* <Block3D></Block3D> */}
          <button 
            className="demo-toggle"
            onClick={() => setShowHashGenerator(!showHashGenerator)}

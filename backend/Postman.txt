@@ -1,21 +1,2 @@
-
-URL 1 : Admin Upload
-
-Method: POST
-
-URL: http://localhost:5000/api/admin/upload
-
-Body (form-data):
-
-Key: file → Type: File → Select any file (e.g., PDF, DOCX, PNG, etc.) 
-
-
-URL 2 : User Verify
-
-Method: POST
-
-URL: http://localhost:5000/api/user/verify
-
-Body (form-data):
-
-Key: file → Type: File → Upload a file you want to verify
+# Postman
+https://.postman.co/workspace/DEMO~769c55f8-908e-43c5-926d-772eaf4f8b9f/collection/39115032-ee7e846c-8e81-4b95-b812-aa14e8067e72?action=share&creator=39115032&active-environment=39115032-dc65634c-49d6-4479-ace7-51609454542c

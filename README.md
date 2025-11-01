@@ -114,20 +114,20 @@ npm start
 ## 🖼️ Screenshot Preview
 
 HOME
-![DocChain UI Preview](./Images/1.png)
+![DocChain UI Preview](./frontend/public/temp/1.png)
 
 Login-SignUp
-![DocChain UI Preview](./Images/2.png)
+![DocChain UI Preview](./frontend/public/temp/2.png)
 
 Role-Base Access
-![DocChain UI Preview](./Images/3.png)
+![DocChain UI Preview](./frontend/public/temp/3.png)
 
 Upload Result
-![DocChain UI Preview](./Images/4.png)
+![DocChain UI Preview](./frontend/public/temp/4.png)
 
 Verification Result
-![DocChain UI Preview](./Images/5.png)
-![DocChain UI Preview](./Images/6.png)
+![DocChain UI Preview](./frontend/public/temp/5.png)
+![DocChain UI Preview](./frontend/public/temp/6.png)
 
 ### Authentication
 - `POST /api/auth/register` - Register new user
@@ -144,6 +144,9 @@ Verification Result
 ### System Status
 - `GET /api/ipfs/status` - Check IPFS connection
 - `GET /api/email/status` - Check email service status
+
+### POSTMAN
+- [View](https://web.postman.co/workspace/DEMO~769c55f8-908e-43c5-926d-772eaf4f8b9f/collection/39115032-ee7e846c-8e81-4b95-b812-aa14e8067e72?action=share&source=copy-link&creator=39115032)
 
 ## 🛡️ Security Features
 

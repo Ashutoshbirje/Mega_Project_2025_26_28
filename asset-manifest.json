@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.d91f5db0.css",
-    "main.js": "/static/js/main.05560268.js",
-    "index.html": "/index.html",
-    "main.d91f5db0.css.map": "/static/css/main.d91f5db0.css.map",
-    "main.05560268.js.map": "/static/js/main.05560268.js.map"
+    "main.css": "/DocChain-Unified-Document-Verification-Platform/static/css/main.d91f5db0.css",
+    "main.js": "/DocChain-Unified-Document-Verification-Platform/static/js/main.05560268.js",
+    "index.html": "/DocChain-Unified-Document-Verification-Platform/index.html",
+    "main.d91f5db0.css.map": "/DocChain-Unified-Document-Verification-Platform/static/css/main.d91f5db0.css.map",
+    "main.05560268.js.map": "/DocChain-Unified-Document-Verification-Platform/static/js/main.05560268.js.map"
   },
   "entrypoints": [
     "static/css/main.d91f5db0.css",

@@ -2,35 +2,28 @@
 services:
   backend:
     build: ./backend
-    container_name: mega-backend
-    restart: always
+    image: ashutoshbirje880/docchain-backend:latest
+    container_name: docchain-backend
     env_file:
       - ./backend/.env
     ports:
       - "5000:5000"
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
-    depends_on:
-      - mongo
+    networks:
+      - docchain-network
 
   frontend:
     build: ./frontend
-    container_name: mega-frontend
-    restart: always
+    image: ashutoshbirje880/docchain-frontend:latest
+    container_name: docchain-frontend
     ports:
       - "3000:80"
+    environment:
+      - REACT_APP_API_BASE_URL=http://backend:5000/api
     depends_on:
       - backend
+    networks:
+      - docchain-network
 
-  mongo:
-    image: mongo:6
-    container_name: mega-mongo
-    restart: always
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-
-volumes:
-  mongo_data:
+networks:
+  docchain-network:
+    driver: bridge

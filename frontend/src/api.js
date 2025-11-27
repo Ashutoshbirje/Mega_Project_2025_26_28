@@ -11,7 +11,6 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// ✅ FIXED: Do NOT auto delete token on 401
 API.interceptors.response.use(
   (response) => response,
   (error) => {

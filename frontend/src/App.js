@@ -4,7 +4,6 @@ import IPFSVisualization from "./components/IPFSVisualization";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HashGenerator from "./components/HashGenerator";
-// import Block3D from "./components/Block3D";
 import './App.css';
 import "./styles.css";
 
@@ -26,12 +25,12 @@ function App() {
   // Check if user is logged in on component mount
 useEffect(() => {
   const checkAuth = async () => {
-    const token = localStorage.getItem("token"); // ✅ Keep using localStorage
+    const token = localStorage.getItem("token");
     if (token) {
       try {
         const response = await getCurrentUser();
         setUser(response.user);
-        setIsAuthenticated(true);   // ✅ Stay logged in
+        setIsAuthenticated(true);   
       } catch (error) {
         // Only clear if token is INVALID
         localStorage.removeItem("token");
@@ -87,8 +86,8 @@ const handleLogout = async () => {
   } catch (error) {
     console.error("Logout error:", error);
   } finally {
-    localStorage.removeItem("token");   // ✅ Clear ONLY on logout click
-    localStorage.removeItem("user");    // ✅ Clear ONLY on logout click
+    localStorage.removeItem("token");  
+    localStorage.removeItem("user");   
     setUser(null);
     setIsAuthenticated(false);
   }

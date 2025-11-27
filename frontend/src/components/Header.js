@@ -114,16 +114,6 @@ function Header({ isAuthenticated, onLogout }) {
                 </button>
               )}
             </div>
-            {/* <a
-              className="menuToggle"
-              href="javascript:void(0);"
-              aria-label="Main Menu"
-              aria-expanded="false"
-              style={{ marginLeft: '18px', display: 'flex', alignItems: 'center', color: '#222', textDecoration: 'none', fontWeight: 500 }}
-            >
-              <span className="icon-menu" aria-hidden="true" style={{ fontSize: '2.2rem' }}>≡</span>
-              <span className="menu-text" style={{ marginLeft: '8px', fontSize: '1.1rem' }}>मेनू टॉगल</span>
-            </a> */}
           </div>
         </div>
       </div>

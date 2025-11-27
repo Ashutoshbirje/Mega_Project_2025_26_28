@@ -21,4 +21,60 @@
   .zps-title-hi { font-size: 16px; }
 }
 
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .logo_text strong {
+    font-size: 0.9rem !important; /* reduce Marathi title */
+  }
+  .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  .h1-logo, .sw-logo {
+    font-size: 1.6rem !important; /* reduce English title */
+  }
+  #logo {
+    width: 60px !important; /* reduce emblem logo */
+    height: 70px !important;
+  }
+}
 
+@media (max-width: 768px) {
+  .logo_text strong {
+    font-size: 0.8rem !important;
+  }
+  .h1-logo, .sw-logo {
+    font-size: 1.4rem !important;
+  }
+  .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  #logo {
+    width: 50px !important;
+    height: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo_text strong {
+    font-size: 0.7rem !important;
+  }
+  .h1-logo, .sw-logo {
+    font-size: 1.2rem !important;
+  }
+    .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  #logo {
+    width: 40px !important;
+    height: 50px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  img[src*="202503242097435254.png"] {
+    display: none !important;
+  }
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: process.env.REACT_APP_API_BASE_URL});
+const API = axios.create({ baseURL: process.env.REACT_APP_API_BASE_URL });
 
 // Add token to requests if available
 API.interceptors.request.use((config) => {
@@ -11,14 +11,12 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle token expiration
+// ✅ FIXED: Do NOT auto delete token on 401
 API.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      window.location.reload();
+      console.warn("Unauthorized request - token might be expired");
     }
     return Promise.reject(error);
   }

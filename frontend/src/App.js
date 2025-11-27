@@ -24,66 +24,75 @@ function App() {
   const [authForm, setAuthForm] = useState({ email: '', password: '', role: 'user' });
 
   // Check if user is logged in on component mount
-  useEffect(() => {
-    const checkAuth = async () => {
-      const token = localStorage.getItem('token');
-      if (token) {
-        try {
-          const response = await getCurrentUser();
-          setUser(response.user);
-          setIsAuthenticated(true);
-        } catch (error) {
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-        }
+useEffect(() => {
+  const checkAuth = async () => {
+    const token = localStorage.getItem("token"); // ✅ Keep using localStorage
+    if (token) {
+      try {
+        const response = await getCurrentUser();
+        setUser(response.user);
+        setIsAuthenticated(true);   // ✅ Stay logged in
+      } catch (error) {
+        // Only clear if token is INVALID
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setUser(null);
+        setIsAuthenticated(false);
       }
-    };
-    checkAuth();
-  }, []);
-
-  // Authentication handlers
-  const handleAuth = async (e) => {
-    e.preventDefault();
-    if (!authForm.email || !authForm.password) {
-      setError("Please fill in all fields");
-      return;
-    }
-
-    setLoading(prev => ({ ...prev, auth: true }));
-    setError(null);
-
-    try {
-      const response = showLogin 
-        ? await login(authForm.email, authForm.password)
-        : await register(authForm.email, authForm.password, authForm.role);
-      
-      localStorage.setItem('token', response.token);
-      localStorage.setItem('user', JSON.stringify(response.user));
-      setUser(response.user);
-      setIsAuthenticated(true);
-      setAuthForm({ email: '', password: '' });
-    } catch (err) {
-      console.error('Auth error:', err);
-      setError(err.response?.data?.error || 'Authentication failed');
-    } finally {
-      setLoading(prev => ({ ...prev, auth: false }));
     }
   };
+  checkAuth();
+}, []);
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-    } catch (error) {
-      console.error('Logout error:', error);
-    } finally {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      setUser(null);
-      setIsAuthenticated(false);
-      setResult(null);
-      setError(null);
-    }
-  };
+
+// Authentication handler — correct & final version
+const handleAuth = async (e) => {
+  e.preventDefault();
+
+  if (!authForm.email || !authForm.password) {
+    setError("Please fill in all fields");
+    return;
+  }
+
+  setLoading(prev => ({ ...prev, auth: true }));
+  setError(null);
+
+  try {
+    const response = showLogin 
+      ? await login(authForm.email, authForm.password)
+      : await register(authForm.email, authForm.password, authForm.role);
+
+    const token = response.accessToken; // Correct key from backend
+    if (!token) throw new Error("No access token returned from server");
+
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(response.user));
+
+    setUser(response.user);
+    setIsAuthenticated(true);
+    setAuthForm({ email: '', password: '', role: 'user' });
+  } catch (err) {
+    console.error('Auth error:', err);
+    setError(err.response?.data?.error || err.message || 'Authentication failed');
+  } finally {
+    setLoading(prev => ({ ...prev, auth: false }));
+  }
+};
+
+
+
+const handleLogout = async () => {
+  try {
+    await logout();
+  } catch (error) {
+    console.error("Logout error:", error);
+  } finally {
+    localStorage.removeItem("token");   // ✅ Clear ONLY on logout click
+    localStorage.removeItem("user");    // ✅ Clear ONLY on logout click
+    setUser(null);
+    setIsAuthenticated(false);
+  }
+};
 
   const handleAdminUpload = async () => {
     if (!adminFile) {

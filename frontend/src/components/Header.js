@@ -16,8 +16,10 @@ function Header({ isAuthenticated, onLogout }) {
       <div
         className="container"
         style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
+          // backgroundColor: '#fe0000ff',
+          maxWidth: '100%',
+          // margin: '0 auto',
+          borderRadius: '15px',
           padding: '0 24px',
         }}
       >

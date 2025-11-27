@@ -26,6 +26,7 @@ body {
   background: #ffffff;
   border-radius: 16px;
   padding: 2rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -376,7 +377,7 @@ details summary:hover {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .demo-toggle:hover {

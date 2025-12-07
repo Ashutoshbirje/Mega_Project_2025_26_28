@@ -1,4 +1,4 @@
-# DocChain: Unified Document Verification Platform 
+# DocChain: Unified Document Verification Platform.
 
 ## 📚 Project Domain
 **Domain**: Web application development with blockchain

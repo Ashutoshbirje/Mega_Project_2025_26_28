@@ -20,9 +20,8 @@ function fileSha256(buffer) {
 function isLikelyValidCid(cid) {
   if (!cid || typeof cid !== 'string') return false;
   if (cid.includes('=')) return false;
-  // rough heuristic checks
-  const cidv0 = /^Qm[1-9A-HJ-NP-Za-km-z]{44,}$/; // CIDv0 (base58)
-  const cidv1 = /^[a-z2-7]{46,}$/; // base32 lowercase (very rough)
+  const cidv0 = /^Qm[1-9A-HJ-NP-Za-km-z]{44,}$/; 
+  const cidv1 = /^[a-z2-7]{46,}$/; 
   return cidv0.test(cid) || cidv1.test(cid);
 }
 
@@ -107,13 +106,11 @@ exports.userVerify = async (req, res) => {
       try {
         const uploadRes = await ipfsService.addFileFromBuffer(req.file.buffer, req.file.originalname);
         if (uploadRes && uploadRes.success) {
-          // Update the stored block - assume block object is mongoose-like or supports mutation+save()
           found.data.ipfsHash = uploadRes.ipfsHash;
           found.data.ipfsUrl = ipfsService.getIPFSUrl(uploadRes.ipfsHash);
           if (typeof found.save === 'function') {
             await found.save();
           } else if (typeof bc.updateBlock === 'function') {
-            // fallback if blockchain offers an update method
             await bc.updateBlock(found.index, found); // example, adjust as your Blockchain API expects
           }
           result.ipfsHash = found.data.ipfsHash;

@@ -367,12 +367,11 @@ details summary:hover {
 }
 
 .demo-toggle {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
+  background: linear-gradient(135deg, #fbac1b 0%, #fbac1b 100%);
+  color: rgb(6, 6, 6);
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  font-size: 1rem;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -382,7 +381,35 @@ details summary:hover {
 
 .demo-toggle:hover {
   transform: translateY(-2px);
+  background-color: #351bfb;
   box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+}
+
+/* 📱 Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .demo-toggle {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 0.9rem;
+    margin-top: 2rem;
+  }
+}
+
+/* 📱 Tablet (≤ 768px) */
+@media (max-width: 768px) {
+  .demo-toggle {
+    font-size: 1rem;
+    padding: 0.85rem 1.25rem;
+    margin-top: 2.5rem;
+  }
+}
+
+/* 💻 Large screens */
+@media (min-width: 1024px) {
+  .demo-toggle {
+    font-size: 1.05rem;
+    padding: 0.9rem 1.75rem;
+  }
 }
 
 /* Responsive Design */
@@ -405,6 +432,30 @@ details summary:hover {
     font-size: 1rem;
   }
 }
+
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+  .auth-section {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+  .auth-toggle {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 540px) {
+  /* Make user-info responsive: move into flow and stack neatly */
+  .user-info {
+    position: static;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
 
 @media (max-width: 480px) {
   .container {
@@ -431,24 +482,28 @@ details summary:hover {
   }
 }
 
-/* Additional responsive adjustments */
-@media (max-width: 768px) {
-  .auth-section {
-    max-width: 100%;
-    padding: 1.5rem;
-  }
-  .auth-toggle {
-    margin-bottom: 1rem;
-  }
-}
 
-@media (max-width: 540px) {
-  /* Make user-info responsive: move into flow and stack neatly */
-  .user-info {
-    position: static;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+@media (max-width: 360px) {
+  .container {
+    padding: 1.5rem 1rem;
+    margin: 0.5rem;
+  }
+  
+  .section {
+    padding: 0.09rem;
+  }
+  
+  .App h1 {
+    font-size: 1.5rem;
+  }
+  
+  button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .file-input-label {
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
   }
 }

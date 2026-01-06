@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 5px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background-color: #f6f3ee
 }
@@ -30,6 +30,14 @@
   position: relative;
   width: 100%;
   max-width: 800px;
+}
+
+.Headline{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
 }
 
 .header1 {
@@ -101,50 +109,18 @@ padding-bottom: 0px;
 }
 
 .auth-toggle-label {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #334155;
-  font-weight: 600;
+  font-weight: 1000;
   margin-bottom: 1rem; /* increased margin below label */
   text-align: center;
 }
 
 .auth-toggle {
   display: flex;
-  margin-bottom: 2rem;
-  border-radius: 9999px;
-  /* overflow: hidden; */
-  border: 1px solid #e2e8f0;
-}
-
-.toggle-btn {
-  flex: 1;
-  padding: 0.5rem 0.875rem; /* reduced height */
-  border: none;
-  background: #f8fafc;
-  color: #64748b;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-/* Asymmetric curved radius: left button rounded on left, right button rounded on right */
-.auth-toggle .toggle-btn:first-child {
-  border-top-left-radius: 9999px;
-  border-bottom-left-radius: 9999px;
-}
-
-.auth-toggle .toggle-btn:last-child {
-  border-top-right-radius: 9999px;
-  border-bottom-right-radius: 9999px;
-}
-
-.toggle-btn.active {
-  background: #3b82f6;
-  color: white;
-}
-
-.toggle-btn:hover:not(.active) {
-  background: #e2e8f0;
+  height: 1px;
+  margin-bottom: 1.5rem;
+  background-color: #000000;
 }
 
 .auth-form {
@@ -183,12 +159,12 @@ padding-bottom: 0px;
 
 .form-group input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #0d182b;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .auth-submit-btn {
-  background: #3b82f6;
+  background: #2a2a2a;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -200,7 +176,7 @@ padding-bottom: 0px;
 }
 
 .auth-submit-btn:hover:not(:disabled) {
-  background: #2563eb;
+  background: #000000;
   transform: translateY(-1px);
 }
 
@@ -216,6 +192,16 @@ padding-bottom: 0px;
   max-width: 800px;
 }
 
+.Option {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.Option > p{
+  font-size: 15px;
+  margin: 5px;
+}
 
 /* User info container */
 .user-info {
@@ -276,120 +262,5 @@ padding-bottom: 0px;
   }
 }
 
-/* By default, hide the mobile login button */
-.login-btn-mobile {
-  display: none;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.login-btn-mobile:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
-}
 
 
-/* Footer general styling */
-.container1 {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-#mainFooter {
-    color: #333;
-    font-family: Arial, sans-serif;
-    padding: 30px 0 0 0;
-    width: 100%;
-}
-
-#mainFooter a {
-    color: #f8f8f8;
-    text-decoration: none;
-}
-
-#mainFooter a:hover {
-    text-decoration: underline;
-}
-
-/* Footer top */
-.footer-top {
-    border-bottom: 1px solid #ddd;
-    /* padding-bottom: 10px; */
-    margin-bottom: 10px;
-background-color: #101010;
-}
-
-.footerMenu{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #101010;
-}
-
-.footer-top .footerMenu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-top .footerMenu ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-.footer-top .footerMenu ul li a {
-    font-size: 14px;
-}
-
-/* Footer bottom */
-.footer-bottom {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #101010;
-}
-
-.copyRights {
-    text-align: center;
-}
-
-.copyRightsText p {
-    margin: 5px 0;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.copyRightsLogos {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.copyRightsLogos li img {
-    height: 40px;
-    width: auto;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .footer-top .footerMenu ul li {
-        display: block;
-        margin: 5px 0;
-    }
-    .copyRightsLogos {
-        flex-direction: column;
-        gap: 10px;
-    }
-}

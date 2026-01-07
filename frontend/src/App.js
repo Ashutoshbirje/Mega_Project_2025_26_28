@@ -316,14 +316,14 @@ function App() {
               {showLogin ? (
                 <p>
                   Don't have an account?{" "}
-                  <a href="#" onClick={() => setShowLogin(false)}>
+                  <a href="/" onClick={() => setShowLogin(false)}>
                     Sign Up
                   </a>
                 </p>
               ) : (
                 <p>
                   Already have an account?{" "}
-                  <a href="#" onClick={() => setShowLogin(true)}>
+                  <a href="/" onClick={() => setShowLogin(true)}>
                     Log In
                   </a>
                 </p>

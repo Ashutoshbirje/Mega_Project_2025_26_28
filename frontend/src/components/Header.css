@@ -52,23 +52,24 @@
 /* Icon buttons */
 .logout-icon-btn,
 .external-link-btn {
-  background: #c0392b;
-  color: #fff;
+  background: #d0cdc6;
+  color: #717171;
   border: none;
   border-radius: 2px;
-  /* padding: 8px; */
+  padding: 6px 8px;
   cursor: pointer;
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
   text-decoration: none;
-  width: 30px !important;
-  height: 30px !important;
+  /* width: 30px !important;
+  height: 30px !important; */
 }
 
 .external-link-btn {
-  background: #a29e95; /* Brown color as requested */
+  background: #d0cdc6; /* Brown color as requested */
 }
 
 .logout-icon-btn:hover {

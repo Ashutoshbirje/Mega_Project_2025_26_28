@@ -20,7 +20,7 @@ function Header({ isAuthenticated, onLogout }) {
                 title="Logout"
                 aria-label="Logout"
               >
-                <FaSignOutAlt className="logout-icon" />
+                LOGOUT <FaSignOutAlt className="logout-icon" />
               </span>
             ) : (
               // Link to maharashtra.gov.in with icon as requested

@@ -88,9 +88,6 @@ const IPFSVisualization = ({ fileData, isVisible }) => {
             </div>
             {showDetails && (
               <div className="hash-details">
-                <div className="hash-full">
-                  <strong>Full Hash:</strong> {fileData.fileHash}
-                </div>
                 <div className="hash-explanation">
                   The file content is processed through SHA-256 algorithm to create a unique fingerprint
                 </div>

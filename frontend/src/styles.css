@@ -296,6 +296,59 @@ button.loading::after {
   font-family: 'Courier New', monospace;
 }
 
+.ipfs-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+}
+
+/* URL */
+.ipfs-link {
+  flex: 1;
+  /* min-width: 0;               Required for ellipsis */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.ipfs-link:hover {
+  text-decoration: underline;
+}
+
+.external-link-icon {
+  cursor: pointer;
+  color: #ff0000; /* default */
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.external-link-icon:hover {
+  color: #4f46e5;
+}
+
+.external-link-icon.copied {
+  color: #22c55e; /* copied green */
+  transform: scale(1.1);
+}
+
+
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+  .ipfs-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .ipfs-link {
+    width: 100%;
+  }
+
+}
+
 .ipfs-info {
   background: #f0f9ff;
   border: 1px solid #bae6fd;
@@ -304,11 +357,7 @@ button.loading::after {
   margin: 1rem 0;
 }
 
-.ipfs-url {
-  margin-bottom: 0.75rem;
-}
-
-.ipfs-url a {
+.ipfs-link a {
   color: #0369a1;
   text-decoration: none;
   word-break: break-all;
@@ -321,7 +370,7 @@ button.loading::after {
   font-family: 'Courier New', monospace;
 }
 
-.ipfs-url a:hover {
+.ipfs-link a:hover {
   background: #bae6fd;
   text-decoration: underline;
 }
@@ -332,6 +381,7 @@ button.loading::after {
   word-break: break-all;
   font-family: 'Courier New', monospace;
 }
+
 
 details {
   margin-top: 1rem;

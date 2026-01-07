@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaCopy } from "react-icons/fa";
 import {
   adminUpload,
   userVerify,
@@ -38,6 +39,7 @@ function App() {
     password: "",
     role: "user",
   });
+  const [copied, setCopied] = useState(false);
 
   // Check if user is logged in on component mount
   useEffect(() => {
@@ -198,15 +200,15 @@ function App() {
   return (
     <div className="App">
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
-      
+
       <div className="Headline">
-      {!isAuthenticated && <h1 className="header1">Welcome to DocChain</h1>}
-      {!isAuthenticated && (
-        <p className="para1">
-          Trust is replaced by cryptography; security is built into the chain
-          itself.
-        </p>
-      )}
+        {!isAuthenticated && <h1 className="header1">Welcome to DocChain</h1>}
+        {!isAuthenticated && (
+          <p className="para1">
+            Trust is replaced by cryptography; security is built into the chain
+            itself.
+          </p>
+        )}
       </div>
 
       <div className="demo-section">
@@ -295,8 +297,8 @@ function App() {
               {loading.auth
                 ? "Processing..."
                 : showLogin
-                ? "Login"
-                : "Register"}
+                  ? "Login"
+                  : "Register"}
             </button>
             {error && (
               <div
@@ -311,21 +313,21 @@ function App() {
             )}
 
             <div className="Option">
-            {showLogin ? (
-              <p>
-                Don't have an account?{" "}
-                <a href="#" onClick={() => setShowLogin(false)}>
-                  Sign Up
-                </a>
-              </p>
-            ) : (
-              <p>
-                Already have an account?{" "}
-                <a href="#" onClick={() => setShowLogin(true)}>
-                  Log In
-                </a>
-              </p>
-            )}
+              {showLogin ? (
+                <p>
+                  Don't have an account?{" "}
+                  <a href="#" onClick={() => setShowLogin(false)}>
+                    Sign Up
+                  </a>
+                </p>
+              ) : (
+                <p>
+                  Already have an account?{" "}
+                  <a href="#" onClick={() => setShowLogin(true)}>
+                    Log In
+                  </a>
+                </p>
+              )}
             </div>
 
           </form>
@@ -338,7 +340,7 @@ function App() {
             <div className="main-content">
               {user?.role === "admin" && (
                 <div className="section">
-                  <h3>📤 Document Upload</h3>
+                  <h3> Upload Document </h3>
                   <div className="file-input-wrapper">
                     <input
                       type="file"
@@ -348,9 +350,8 @@ function App() {
                     />
                     <label
                       htmlFor="admin-file"
-                      className={`file-input-label ${
-                        adminFile ? "has-file" : ""
-                      }`}
+                      className={`file-input-label ${adminFile ? "has-file" : ""
+                        }`}
                     >
                       <span>📁</span>
                       <span>
@@ -375,7 +376,7 @@ function App() {
               )}
 
               <div className="section">
-                <h3>🔍 User Verify</h3>
+                <h3>Verify Document </h3>
                 <div className="file-input-wrapper">
                   <input
                     type="file"
@@ -420,8 +421,8 @@ function App() {
                   <div className="result-header">
                     <h3>
                       {result.type === "admin"
-                        ? "📤 Upload Result"
-                        : "🔍 Verification Result"}
+                        ? "Upload Result"
+                        : "Verification Result"}
                     </h3>
                     <button
                       className="visualization-toggle"
@@ -435,20 +436,37 @@ function App() {
                   {result.type === "admin" && result.data.ipfsUrl && (
                     <div className="ipfs-info">
                       <div className="ipfs-url">
-                        <strong>🌐 IPFS URL:</strong>
-                        <a
-                          href={result.data.ipfsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {result.data.ipfsUrl}
-                        </a>
+                        <strong>🌐  IPFS URL:</strong>
+                        <div className="ipfs-row">
+                          <a
+                            href={result.data.ipfsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ipfs-link"
+                          >
+                            {result.data.ipfsUrl}
+                          </a>
+
+                          <FaCopy
+                            onClick={() => {
+                              navigator.clipboard.writeText(result.data.ipfsUrl);
+                              setCopied(true);
+                              setTimeout(() => setCopied(false), 2000);
+                            }}
+                            className={`external-link-icon ${copied ? "copied" : ""}`}
+                            title={copied ? "Copied!" : "Copy URL"}
+                          />
+
+                        </div>
                       </div>
+                      <hr></hr>
                       <div className="ipfs-hash">
                         <strong>🔗 IPFS Hash:</strong> {result.data.ipfsHash}
                       </div>
+                      <hr></hr>
                       <div className="file-hash">
                         <strong>📄 File Hash:</strong>{" "}
+                        <br></br>
                         {result.data.block.data.fileHash}
                       </div>
                     </div>
@@ -456,32 +474,50 @@ function App() {
                   {result.type === "user" && (
                     <div className="verification-status">
                       <div
-                        className={`status-indicator ${
-                          result.data.match ? "success" : "failed"
-                        }`}
+                        className={`status-indicator ${result.data.match ? "success" : "failed"
+                          }`}
                       >
                         {result.data.match ? "✅ VERIFIED" : "❌ NOT FOUND"}
                       </div>
-                      <div className="file-hash">
-                        <strong>📄 File Hash:</strong> {result.data.fileHash}
-                      </div>
                       {result.data.match && result.data.ipfsUrl && (
-                        <div className="ipfs-info">
-                          <div className="ipfs-url">
-                            <strong>🌐 IPFS URL:</strong>
-                            <a
-                              href={result.data.ipfsUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {result.data.ipfsUrl}
-                            </a>
-                          </div>
-                          <div className="ipfs-hash">
-                            <strong>🔗 IPFS Hash:</strong>{" "}
-                            {result.data.ipfsHash}
-                          </div>
+                        
+                           <div className="ipfs-info">
+                      <div className="ipfs-url">
+                        <strong>🌐  IPFS URL:</strong>
+                        <div className="ipfs-row">
+                          <a
+                            href={result.data.ipfsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="ipfs-link"
+                          >
+                            {result.data.ipfsUrl}
+                          </a>
+
+                          <FaCopy
+                            onClick={() => {
+                              navigator.clipboard.writeText(result.data.ipfsUrl);
+                              setCopied(true);
+                              setTimeout(() => setCopied(false), 2000);
+                            }}
+                            className={`external-link-icon ${copied ? "copied" : ""}`}
+                            title={copied ? "Copied!" : "Copy URL"}
+                          />
+
                         </div>
+                      </div>
+                      <hr></hr>
+                      <div className="ipfs-hash">
+                        <strong>🔗 IPFS Hash:</strong> {result.data.ipfsHash}
+                      </div>
+                      <hr></hr>
+                      <div className="file-hash">
+                        <strong>📄 File Hash:</strong>{" "}
+                        <br></br>
+                         {result.data.fileHash}
+                      </div>
+                    </div>
+
                       )}
                     </div>
                   )}
@@ -498,29 +534,29 @@ function App() {
                   fileData={
                     result.type === "admin"
                       ? {
-                          originalName:
-                            result.data.block?.data?.originalName || "Unknown",
-                          size: result.data.block?.data?.size || 0,
-                          mimeType:
-                            result.data.block?.data?.mimeType || "Unknown",
-                          fileHash:
-                            result.data.block?.data?.fileHash ||
-                            result.data.fileHash,
-                          ipfsHash: result.data.ipfsHash,
-                          ipfsUrl: result.data.ipfsUrl,
-                          uploadedAt: result.data.block?.data?.uploadedAt,
-                          block: result.data.block,
-                        }
+                        originalName:
+                          result.data.block?.data?.originalName || "Unknown",
+                        size: result.data.block?.data?.size || 0,
+                        mimeType:
+                          result.data.block?.data?.mimeType || "Unknown",
+                        fileHash:
+                          result.data.block?.data?.fileHash ||
+                          result.data.fileHash,
+                        ipfsHash: result.data.ipfsHash,
+                        ipfsUrl: result.data.ipfsUrl,
+                        uploadedAt: result.data.block?.data?.uploadedAt,
+                        block: result.data.block,
+                      }
                       : {
-                          originalName: userFile?.name || "Unknown",
-                          size: userFile?.size || 0,
-                          mimeType: userFile?.type || "Unknown",
-                          fileHash: result.data.fileHash,
-                          ipfsHash: result.data.ipfsHash,
-                          ipfsUrl: result.data.ipfsUrl,
-                          uploadedAt: result.data.foundBlock?.data?.uploadedAt,
-                          block: result.data.foundBlock,
-                        }
+                        originalName: userFile?.name || "Unknown",
+                        size: userFile?.size || 0,
+                        mimeType: userFile?.type || "Unknown",
+                        fileHash: result.data.fileHash,
+                        ipfsHash: result.data.ipfsHash,
+                        ipfsUrl: result.data.ipfsUrl,
+                        uploadedAt: result.data.foundBlock?.data?.uploadedAt,
+                        block: result.data.foundBlock,
+                      }
                   }
                   isVisible={showVisualization}
                 />
@@ -529,7 +565,7 @@ function App() {
           </div>
         )
       )}
-      
+
       {/* Footer (OK) */}
       <Footer></Footer>
 

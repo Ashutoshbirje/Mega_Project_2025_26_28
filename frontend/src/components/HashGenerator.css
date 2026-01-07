@@ -196,6 +196,8 @@
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1.5rem;
 }
 
@@ -209,7 +211,17 @@
 .step {
   display: flex;
   gap: 1rem;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.Steps {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .step-number {

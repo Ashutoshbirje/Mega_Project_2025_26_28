@@ -24,13 +24,17 @@ body {
 
 .section {
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 0px 0px 16px 16px;
   padding: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+}
+
+.section > div {
+margin: 10px 10px;
 }
 
 .section:hover {
@@ -160,8 +164,8 @@ button.loading::after {
 
 .result {
   background: #ffffff;
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 0px 0px  16px;
+  padding: 12px 10px;
   margin-top: 2rem;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);

@@ -347,10 +347,11 @@ function App() {
         isAuthenticated && (
           <div className="container">
             {/*  Add here login register in toggle nature with actual content of the container */}
-
+ 
             <div className="main-content">
               {user?.role === "admin" && (
                 <div className="section">
+                  <div> 
                   <h3> Upload Document </h3>
                   <div className="file-input-wrapper">
                     <input
@@ -383,10 +384,12 @@ function App() {
                   >
                     {loading.admin ? "Uploading..." : "Upload Document"}
                   </button>
+                  </div>
                 </div>
               )}
 
               <div className="section">
+                <div>
                 <h3>Verify Document </h3>
                 <div className="file-input-wrapper">
                   <input
@@ -418,6 +421,7 @@ function App() {
                 >
                   {loading.user ? "Verifying..." : "Verify Document"}
                 </button>
+                </div>
               </div>
 
               {error && (

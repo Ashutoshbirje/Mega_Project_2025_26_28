@@ -110,7 +110,10 @@ const HashGenerator = () => {
           
           {showSteps && (
             <div className="steps-content">
+             <div>
               <h4>How SHA-256 Hash Generation Works:</h4>
+             </div>
+              <div className="Steps">
               <div className="step">
                 <div className="step-number">1</div>
                 <div className="step-content">
@@ -154,6 +157,8 @@ const HashGenerator = () => {
                   </div>
                 </div>
               </div>
+              </div>
+
             </div>
           )}
         </div>

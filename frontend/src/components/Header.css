@@ -418,8 +418,9 @@
   
   .logout-icon-btn,
   .external-link-btn {
-    width: 32px;
-    height: 32px;
+    /* width: 32px;
+    height: 32px; */
+    font-size: 8px;
     padding: 6px;
   }
 }

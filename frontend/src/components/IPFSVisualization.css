@@ -1,7 +1,7 @@
 .ipfs-visualization {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 0px 0px 16px 16px;
+  padding: 10px;
   margin: 2rem 0;
   color: white;
   position: relative;
@@ -406,7 +406,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .ipfs-visualization {
-    padding: 1.5rem;
+    padding: 0.65rem;
     margin: 1rem 0;
   }
   

@@ -6,23 +6,22 @@ function Header({ isAuthenticated, onLogout }) {
     <header class="header-wrapper">
       <div class="gov-header">
           <div class="gov-container">
-            <div>
-            <span class="gov-marathi">महाराष्ट्र सरकार</span>
-            <span class="divider">|</span>
+            <div> 
             <span class="gov-english">GOVERNMENT OF MAHARASHTRA</span>
+            <span class="divider">|</span>
+            <span class="gov-marathi">महाराष्ट्र सरकार</span>
             </div>
   <div className="header-actions">
             {isAuthenticated ? (
               // Simple logout icon as requested
-              <a
-                href="/"
+              <span
                 className="logout-icon-btn"
                 onClick={onLogout}
                 title="Logout"
                 aria-label="Logout"
               >
                 <FaSignOutAlt className="logout-icon" />
-              </a>
+              </span>
             ) : (
               // Link to maharashtra.gov.in with icon as requested
               <a

@@ -316,16 +316,27 @@ function App() {
               {showLogin ? (
                 <p>
                   Don't have an account?{" "}
-                  <a href="/" onClick={() => setShowLogin(false)}>
+                  <span style={{
+                    color: "#1c31b9ff",
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                  }} onClick={() => setShowLogin(false)}>
                     Sign Up
-                  </a>
+                  </span>
                 </p>
               ) : (
                 <p>
                   Already have an account?{" "}
-                  <a href="/" onClick={() => setShowLogin(true)}>
+                  <span
+                    style={{
+                      color: "#1c31b9ff",
+                      cursor: "pointer",
+                      textDecoration: "underline",
+                    }}
+                    onClick={() => setShowLogin(true)}
+                  >
                     Log In
-                  </a>
+                  </span>
                 </p>
               )}
             </div>
@@ -480,43 +491,43 @@ function App() {
                         {result.data.match ? "✅ VERIFIED" : "❌ NOT FOUND"}
                       </div>
                       {result.data.match && result.data.ipfsUrl && (
-                        
-                           <div className="ipfs-info">
-                      <div className="ipfs-url">
-                        <strong>🌐  IPFS URL:</strong>
-                        <div className="ipfs-row">
-                          <a
-                            href={result.data.ipfsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ipfs-link"
-                          >
-                            {result.data.ipfsUrl}
-                          </a>
 
-                          <FaCopy
-                            onClick={() => {
-                              navigator.clipboard.writeText(result.data.ipfsUrl);
-                              setCopied(true);
-                              setTimeout(() => setCopied(false), 2000);
-                            }}
-                            className={`external-link-icon ${copied ? "copied" : ""}`}
-                            title={copied ? "Copied!" : "Copy URL"}
-                          />
+                        <div className="ipfs-info">
+                          <div className="ipfs-url">
+                            <strong>🌐  IPFS URL:</strong>
+                            <div className="ipfs-row">
+                              <a
+                                href={result.data.ipfsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="ipfs-link"
+                              >
+                                {result.data.ipfsUrl}
+                              </a>
 
+                              <FaCopy
+                                onClick={() => {
+                                  navigator.clipboard.writeText(result.data.ipfsUrl);
+                                  setCopied(true);
+                                  setTimeout(() => setCopied(false), 2000);
+                                }}
+                                className={`external-link-icon1 ${copied ? "copied" : ""}`}
+                                title={copied ? "Copied!" : "Copy URL"}
+                              />
+
+                            </div>
+                          </div>
+                          <hr></hr>
+                          <div className="ipfs-hash">
+                            <strong>🔗 IPFS Hash:</strong> {result.data.ipfsHash}
+                          </div>
+                          <hr></hr>
+                          <div className="file-hash">
+                            <strong>📄 File Hash:</strong>{" "}
+                            <br></br>
+                            {result.data.fileHash}
+                          </div>
                         </div>
-                      </div>
-                      <hr></hr>
-                      <div className="ipfs-hash">
-                        <strong>🔗 IPFS Hash:</strong> {result.data.ipfsHash}
-                      </div>
-                      <hr></hr>
-                      <div className="file-hash">
-                        <strong>📄 File Hash:</strong>{" "}
-                        <br></br>
-                         {result.data.fileHash}
-                      </div>
-                    </div>
 
                       )}
                     </div>

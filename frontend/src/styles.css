@@ -318,17 +318,17 @@ button.loading::after {
   text-decoration: underline;
 }
 
-.external-link-icon {
+.external-link-icon1 {
   cursor: pointer;
   color: #ff0000; /* default */
   transition: color 0.2s ease, transform 0.1s ease;
 }
 
-.external-link-icon:hover {
+.external-link-icon1:hover {
   color: #4f46e5;
 }
 
-.external-link-icon.copied {
+.external-link-icon1.copied {
   color: #22c55e; /* copied green */
   transform: scale(1.1);
 }

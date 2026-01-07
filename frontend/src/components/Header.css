@@ -24,10 +24,19 @@
   color: #000;
 }
 
+
+
 .gov-text {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.Tag{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1px
 }
 
 .gov-marathi {
@@ -127,9 +136,8 @@
 }
 
 /* Text */
-.logo_text {
-  color: #222;
-}
+
+
 
 .marathi-title {
   display: block;
@@ -138,14 +146,104 @@
   color: #222;
 }
 
-.h1-logo {
+
+.logo_text {
+  color: #222;
+}
+
+/* Marathi text */
+.logo-marathi {
+  font-size: 1rem;
+  display: block;
+  font-weight: 600;
+}
+
+/* English text */
+.logo-english {
   font-size: 2rem;
   font-weight: 700;
+  display: block;
   margin: 0;
-  color: #222;
   line-height: 1.2;
 }
 
+/* Tablet */
+@media (max-width: 900px) {
+
+  .logo-marathi {
+    font-size: 0.9rem;
+  }
+
+  .logo-english {
+    font-size: 1.6rem;
+  }
+}
+
+/* Small tablet / large mobile */
+@media (max-width: 750px) {
+    #logo {
+  width: 60px;
+  height: 70px;
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+
+  .logo-marathi {
+    font-size: 0.85rem;
+  }
+
+  .logo-english {
+    font-size: 1.4rem;
+  }
+}
+
+/* ❌ Hide below 650px */
+@media (max-width: 650px) {
+      #logo {
+  width: 50px;
+  height: 60px;
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+
+
+  .logo-marathi {
+    font-size: 0.80rem;
+  }
+
+  .logo-english {
+    font-size: 1.2rem;
+  }
+}
+
+/* ❌ Hide below 650px */
+@media (max-width: 450px) {
+  .container7{
+    padding-left: 5px;
+    margin: 0px 5px;
+  }
+        #logo {
+  width: 40px;
+  height: 50px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+ .logo-marathi {
+    font-size: 0.70rem;
+  }
+
+  .logo-english {
+    font-size: 1.0rem;
+  }
+}
+
+/* ❌ Hide below 250px */
+@media (max-width: 250px) {
+  .logo_text {
+    display: none;
+  }
+}
 /* Right section */
 .col-right {
   flex-shrink: 0;
@@ -155,6 +253,7 @@
   display: flex;
   align-items: center;
   gap: 18px;
+
 }
 
 /* Logos */
@@ -215,10 +314,14 @@
 
 /* Small tablets / Large mobiles */
 @media (max-width: 768px) {
-  .container7,
-  .gov-container {
-    padding: 0 20px;
+ .container7 {
+    padding: 0 8px;
   }
+
+  .gov-container {
+    padding: 0 10px;
+  }
+  
   
   .gov-container {
     padding-top: 8px;
@@ -260,26 +363,23 @@
 
 /* Mobile phones */
 @media (max-width: 600px) {
-  .container7,
+  .container7 {
+    padding: 0 5px;
+  }
+
   .gov-container {
-    padding: 0 15px;
+    padding: 0 5px;
   }
   
   .row1 {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 15px 0;
     min-height: auto;
     gap: 15px;
   }
   
-  .col-left,
-  .col-right {
-    width: 100%;
-  }
-  
   .header-right {
-    justify-content: flex-start;
+    justify-content: flex-end;
+    gap: 5px
   }
   
   .gov-text {
@@ -288,9 +388,6 @@
     gap: 2px;
   }
   
-  .divider {
-    display: none;
-  }
 }
 
 /* Very small screens */
@@ -331,7 +428,7 @@
 @media (max-width: 360px) {
   .container7,
   .gov-container {
-    padding: 0 10px;
+    padding: 0 5px;
   }
   
   .logo {
@@ -345,5 +442,55 @@
   .header-right {
     flex-wrap: wrap;
     gap: 10px;
+  }
+}
+
+
+
+/* <= 900px */
+@media (max-width: 900px) {
+  .gov-english,
+  .gov-marathi {
+    font-size: 0.85rem;
+  }
+
+  .divider {
+    margin: 0 6px;
+  }
+}
+
+/* <= 600px */
+@media (max-width: 600px) {
+  .gov-english,
+  .gov-marathi {
+    font-size: 0.75rem;
+  }
+
+  .divider {
+    margin: 0 5px;
+  }
+}
+
+/* <= 550px */
+@media (max-width: 550px) {
+  .gov-english,
+  .gov-marathi {
+    font-size: 0.65rem;
+  }
+
+  .divider {
+    margin: 0 4px;
+  }
+}
+
+/* <= 350px */
+@media (max-width: 350px) {
+  .gov-english,
+  .gov-marathi {
+    font-size: 0.45rem;
+  }
+
+  .divider {
+    margin: 0 3px;
   }
 }

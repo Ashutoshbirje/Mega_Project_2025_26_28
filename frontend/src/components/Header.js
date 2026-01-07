@@ -5,13 +5,13 @@ function Header({ isAuthenticated, onLogout }) {
   return (
     <header class="header-wrapper">
       <div class="gov-header">
-          <div class="gov-container">
-            <div> 
+        <div class="gov-container">
+          <div className="Tag">
             <span class="gov-english">GOVERNMENT OF MAHARASHTRA</span>
             <span class="divider">|</span>
             <span class="gov-marathi">महाराष्ट्र सरकार</span>
-            </div>
-  <div className="header-actions">
+          </div>
+          <div className="header-actions">
             {isAuthenticated ? (
               // Simple logout icon as requested
               <span
@@ -36,7 +36,7 @@ function Header({ isAuthenticated, onLogout }) {
               </a>
             )}
           </div>
-</div>
+        </div>
       </div>
       <div class="container7">
 
@@ -55,32 +55,20 @@ function Header({ isAuthenticated, onLogout }) {
                   src="https://zpsangli.maharashtra.gov.in/wp-content/themes/sdo-theme/images/emblem.svg"
                   alt="भारताचे राज्य चिन्ह"
                 />
-                <div className="logo_text" style={{ color: "#222" }}>
+                <div className="logo_text">
                   {" "}
                   <strong
-                    lang="mr"
-                    style={{
-                      fontSize: "1.0rem",
-                      display: "block",
-                      color: "#222",
-                      fontWeight: 600,
-                    }}
+                    className="logo-marathi"
                   >
                     {" "}
                     जिल्हा परिषद सांगली{" "}
                   </strong>{" "}
-                  <h1
-                    className="h1-logo"
-                    style={{
-                      fontSize: "2.0rem",
-                      margin: 0,
-                      color: "#222",
-                      fontWeight: 700,
-                    }}
+                  <strong
+                    className="logo-english"
                   >
                     {" "}
                     Zilla Parishad Sangli{" "}
-                  </h1>{" "}
+                  </strong>{" "}
                 </div>
               </a>
             </div>
@@ -113,14 +101,12 @@ function Header({ isAuthenticated, onLogout }) {
                 />
               </a>
 
-        
+
             </div>
           </div>
         </div>
 
       </div>
-      {/* // ADD HERE SLIDER */}
-      
     </header>
     // <!-- ================= Header End ================= -->
   );

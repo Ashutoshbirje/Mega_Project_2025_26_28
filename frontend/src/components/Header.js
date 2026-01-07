@@ -15,7 +15,7 @@ function Header({ isAuthenticated, onLogout }) {
             {isAuthenticated ? (
               // Simple logout icon as requested
               <a
-                href="#"
+                href="/"
                 className="logout-icon-btn"
                 onClick={onLogout}
                 title="Logout"
